@@ -87,33 +87,40 @@
         firstAnimation();
        
         //ANIMATION EFFECTS based on scroll
+        
+        //SET VARIABLES
+        //variable name to handle
+        var el = $('section');
+        var breakpoints = [];
+        
+        //set breakpoints method
+        setBreakpoints=function(){
+            breakpoints =[];
+            el.each(function(){
+                breakpoints.push($(this).height());
+            });
+            return breakpoints;
+        };
+        setBreakpoints();
+        
+        //when resize window
+        $(window).resize(function(){
+            //setBreakpoints when windows size changed
+            setBreakpoints();
+        });
+        
+        //if windows scroll
         $(window).scroll(function(options){
-            //6 heights/animations for based 500px height
-            var settings = $.extend({
-                height1: 0,
-                height2: 500,
-                height3: 700,
-                height4: 1600,
-                height5: 2000,
-                width1: 480,
-                width2: 768,
-                width3: 992,
-                width4: 1200,
-            },options)
+            //Position from top
+            var posTop = $(this).scrollTop();
             
-            var height = $(this).scrollTop();
-            var width = $(this).width();
-            var winHeight = $(this).height();
-            var reduce = 0;
-            //console.log(height,width, winHeight);
-            
-            var firstAnimation = function(){
+            var Animation1 = function(){
                 //remove class for menu
                 $('.navmain').removeClass('background');
                 $('.navmain .navmain-brand').hide();
             };
             
-            var secondAnimation = function(){
+            var Animation2 = function(){
                 //add background for menu
                 $('.navmain').addClass('background');
                 $('.navmain .navmain-brand').show();
@@ -127,7 +134,7 @@
                 $(section + ' .an4').delay(3000).animate({opacity: 1},duration);
             };
             
-            var thirdAnimation = function(){
+            var Animation3 = function(){
                 var section = ('#section3');
                 var duration = 2000;
 
@@ -137,7 +144,7 @@
                 $(section + ' .an4').delay(2000).animate({opacity:1}, duration);
             };
             
-            var fourthAnimation = function(e){
+            var Animation4 = function(e){
                 var section = ('#section4');
                 var duration = 2000;
                 e = $(section + ' .row').children('.col-sm-2');
@@ -147,14 +154,20 @@
   
             };
             
-            if( width<settings.width1 && winHeight>400){ reduce = 100; }
-            if(width>settings.width1 && winHeight<400){ reduce = -280; }
-            if(height > settings.height1+reduce) firstAnimation();
-            if(height > settings.height2+reduce) secondAnimation();
-            if(height > settings.height3+reduce) thirdAnimation();
-            if(height > settings.height4+reduce) fourthAnimation();
-            
+            //look for breakpont from array
+            //set breakpoint position(margin)
+            var breakpoint =-100;
+            for(var i=0; i<breakpoints.length; i++){
+                if(posTop > breakpoint){
+                    if(i==0) Animation1();
+                    if(i==1) Animation2();
+                    if(i==2) Animation3();
+                    if(i==3) Animation4();
+                }
+                breakpoint +=breakpoints[i];
+            }
         })
+        // /.ANIMATION EFFECT
 
     });
 })();
