@@ -1,7 +1,7 @@
 (function(){
     
     //load page via ajax
-    var loadPage = function(url){
+    function loadPage(url){
             var promise = $.Deferred();
 
             $.ajax(url, {
@@ -16,7 +16,7 @@
     };
     
     //select page to load and make callback
-    var loadCurrentPage = function(place,url){
+    function loadCurrentPage(place,url){
          
        loadPage(url)
             .done(function(result){

@@ -86,8 +86,11 @@ p{
 }
 
 /* navbar */
-nav.background{
+nav.active{
     background: #283233;
+    .navmain-brand{
+        display: block;
+    }
 }
 nav{
     $width: 250px; //width of menu
@@ -151,6 +154,11 @@ nav{
         background: $color1;
         width: $width;
         height: 100%;
+        
+        transition: right 1s;
+        -moz-transition: right 1s;
+        -webkit-transition: right 1s;
+        -o-transition: right 1s;
         ul{
             margin: 10px 20px 10px 20px;
         }
@@ -171,7 +179,6 @@ nav{
     }
     .move{
         right:0px;
-        transition: right 1s;
     }
 }
 
@@ -253,7 +260,7 @@ section{
     p{
        padding:5px 0 5px 0;
     }
-    .an1, .an2, .an3, .an4{
+    .animation{
         opacity: 0;
     }
 }
@@ -289,7 +296,7 @@ section{
     .image img{
         width: inherit;
     }
-    .an1, .an2, .an3, .an4{
+    .animation{
         opacity: 0;
     }
 }
@@ -299,8 +306,8 @@ section{
     background: $color4; 
     color: #FFF;
     padding: 50px 0 50px 0px;
-    .col-sm-2{
-        opacity: 0; //animation
+    .animation{
+        opacity: 0;
     }
     .icon{
         .icon-gfx{

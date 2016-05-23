@@ -84,8 +84,11 @@ p {
 }
 
 /* navbar */
-nav.background {
+nav.active {
   background: #283233;
+}
+nav.active .navmain-brand {
+  display: block;
 }
 
 nav {
@@ -150,6 +153,10 @@ nav .navmain-wraper {
   background: #2fc3d9;
   width: 250px;
   height: 100%;
+  transition: right 1s;
+  -moz-transition: right 1s;
+  -webkit-transition: right 1s;
+  -o-transition: right 1s;
 }
 nav .navmain-wraper ul {
   margin: 10px 20px 10px 20px;
@@ -170,7 +177,6 @@ nav .navmain-wraper ul li a:hover {
 }
 nav .move {
   right: 0px;
-  transition: right 1s;
 }
 
 /* Sections */
@@ -249,7 +255,7 @@ section .wraper {
 .second-section p {
   padding: 5px 0 5px 0;
 }
-.second-section .an1, .second-section .an2, .second-section .an3, .second-section .an4 {
+.second-section .animation {
   opacity: 0;
 }
 
@@ -283,7 +289,7 @@ section .wraper {
 .third-section .image img {
   width: inherit;
 }
-.third-section .an1, .third-section .an2, .third-section .an3, .third-section .an4 {
+.third-section .animation {
   opacity: 0;
 }
 
@@ -293,7 +299,7 @@ section .wraper {
   color: #FFF;
   padding: 50px 0 50px 0px;
 }
-.fourth-section .col-sm-2 {
+.fourth-section .animation {
   opacity: 0;
 }
 .fourth-section .icon .icon-gfx {
