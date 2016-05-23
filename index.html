@@ -21,10 +21,11 @@
         <div class="navmain-wraper">
             <button type="button" class="navmain-close"><span>&#10006</span></button>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             
         </div>
@@ -32,17 +33,17 @@
     <!--/.Nav Main Menu-->
     
     <!-- First Section-->
-    <section class="first-section" id="section1">
+    <section class="first-section" id="home">
         <div class="wraper">
             <h1>Urban Template</h1>
             <p class="lead">This is HTML5, CSS3 template with jQuery. <br>Responsive Web Design, mobile first.</p>       
-            <a href="#section2" class="anahor">Read more</a>
+            <a href="#about" class="anahor">Read more</a>
         </div> 
     </section>
     <!--/.First Section-->
     
     <!-- Second Section-->
-    <section class="second-section" id="section2">
+    <section class="second-section" id="about">
         <div class="wraper">
             
             <div class="col-sm-3 an1">
@@ -56,13 +57,13 @@
                 <p>An cursus viverra orci. In egestas vehicula tellus. Morbi convallis, magna et tempor tristique, neque ligula posuere risus, ut fermentum quam ex sit amet metus. Maecenas arcu felis, semper ut consequat quis, consequat ut purus. Nunc iaculis interdum felis eu euismod. </p>
             </div>
             
-            <a href="#section3" class="anahor an4">Section 3</a>
+            <a href="#features" class="anahor an4">Features</a>
         </div>
     </section>
     <!--/.Second Section-->
     
     <!-- Third Section-->
-    <section class="third-section" id="section3">
+    <section class="third-section" id="features">
         <div class="row an1">
             <div class="col-sm-6 an1a">
                 <div class="image">
@@ -99,15 +100,16 @@
                 <p class="lead">Ut ullamcorper diam pharetra, feugiat nisi sed, placerat nisl. Donec a viverra erat, ac efficitur nunc.</p>
             </div>
         </div><!--/.row-->
-        
+
         <div class="row dark link an4">
-            <a href="#section4" class="anahor">Section 4</a>
+            <a href="#summary" class="anahor">Summary</a>
         </div> 
+    
     </section>
     <!--/.Third Section-->
     
     <!-- Fourth Section-->
-    <section class="fourth-section" id="section4">
+    <section class="fourth-section" id="summary">
         <div class="wraper">
             <div class="row">
                <div class="col-sm-2">
@@ -147,13 +149,13 @@
                     </div>
                 </div>
             </div><!--/.row-->
-            <a href="#section5" class="anahor">Section 5</a>
+            <a href="#contact" class="anahor">Contact</a>
         </div>   
     </section>
     <!--/.Fourth Section-->
     
     <!-- Fifth Section-->
-    <section class="fifth-section" id="section5">
+    <section class="fifth-section" id="contact">
         <div class="wraper">
             <h1>Get in touch</h1>
             <p class="lead">Quisque porttitor ultrices luctus. Nullam lacinia nisl at lectus maximus, in consectetur est laoreet.</p>
@@ -183,10 +185,12 @@
 
     
     <!-- vendor script -->
-    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
 	
 	<!-- Custom script -->
+    <script src="js/ajax.js"></script>
 	<script src="js/custom.js"></script>
+    
 	
 </body>
 </html>

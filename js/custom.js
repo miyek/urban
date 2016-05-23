@@ -10,18 +10,21 @@
         var close = el.find('.navmain-close');
         var lockMenu = false;
         var lockMouse = false;
+        hide = function(){ menu.toggleClass('move'); lockMenu=false; };
         
         show.on('click', function(){ menu.toggleClass('move'); lockMenu=true;});
-        close.on('click', function(){ menu.toggleClass('move'); lockMenu=false;});
+        close.on('click', function(){ menu.toggleClass('move'); lockMenu=false; });
         
         el.hover(function(){ lockMouse=true; },function(){ lockMouse=false; });
         
+        //hide menu if clik outside
         $('body').on('click', function(e){
             if(lockMenu==true && lockMouse==false){
-                menu.toggleClass('move');
-                lockMenu=false;
+                menu.toggleClass('move'); lockMenu=false;
             };
         });
+        //hide menu if click on link
+        el.find('a').on('click', function(){ menu.toggleClass('move'); lockMenu=false; })
     };
     
     //jumTo plugin (go to anahor section)
@@ -43,49 +46,8 @@
     
     /* /. PLUGINS */
     
-    $(document).ready(function(){
-        
-        //PLUGINS handles
-        //toggle menu on click
-        $('.navmain').toggleMenu();
-        //jump to anahor
-        $('.anahor').jumpTo({delay:1500});
-        
-        
-        //hover effect section 5
-        var lock=false;
-        $('.countAnimation').hover(function(a,b,c){
-            if(lock==true) return false;
-            lock=true;
-            //check
-            c = $(this).attr('data-number');
-            b = $(this).find('span');
-            // count number
-            var i =1;
-            $({countNum: 1}).animate({countNum: c}, {
-              duration: 800,
-              easing:'linear',
-              step: function(i) {
-                a = Math.floor(i++);
-                b.html(a);
-              },
-              complete: function() {
-                  lock=false;
-                  return;
-              }
-            });
-        }, function(){});
-        
-        
-        //FIRST ANIMATION after load
-        var firstAnimation = function(){
-            var section = '.first-section';
-            $(section + ' h1').hide().delay(500).fadeIn(1000);
-            $(section + ' .lead').hide().delay(1500).fadeIn(2000);
-            $(section + ' .anahor').hide().delay(3500).fadeIn(2000);
-        };
-        firstAnimation();
-       
+    /* FUNCTIONS */
+    var animationsScroll = function(){
         //ANIMATION EFFECTS based on scroll
         
         //SET VARIABLES
@@ -126,7 +88,7 @@
                 $('.navmain .navmain-brand').show();
                 
                 //animation for content
-                var section = ('#section2');
+                var section = ('#about');
                 var duration = 2000;
                 $(section + ' .an1').delay(500).animate({opacity: 1},duration);
                 $(section + ' .an2').delay(1000).animate({opacity: 1},duration);
@@ -135,7 +97,7 @@
             };
             
             var Animation3 = function(){
-                var section = ('#section3');
+                var section = ('#features');
                 var duration = 2000;
 
                 $(section + ' .an1').delay(500).animate({opacity:1}, duration);
@@ -145,7 +107,7 @@
             };
             
             var Animation4 = function(e){
-                var section = ('#section4');
+                var section = ('#summary');
                 var duration = 2000;
                 e = $(section + ' .row').children('.col-sm-2');
                 e.each(function(i){
@@ -161,13 +123,62 @@
                 if(posTop > breakpoint){
                     if(i==0) Animation1();
                     if(i==1) Animation2();
-                    if(i==2) Animation3();
+                    if(i==2) { Animation3(); }
                     if(i==3) Animation4();
                 }
                 breakpoint +=breakpoints[i];
             }
         })
         // /.ANIMATION EFFECT
+    };
+    /* /.FUNCTIONS */
+    
+    
+    $(document).ready(function(){
+        
+        animationsScroll();
+        
+        //PLUGINS handles
+        //toggle menu on click
+        $('.navmain').toggleMenu();
+        //jump to anahor
+        $('.anahor').jumpTo({delay:1500});
+        //stick to link menu and jump to anahor
+        $('.navmain-wraper li a').jumpTo({delay:1500});
+        
+        //hover effect section 5
+        var lock=false;
+        $('.countAnimation').hover(function(a,b,c){
+            if(lock==true) return false;
+            lock=true;
+            //check
+            c = $(this).attr('data-number');
+            b = $(this).find('span');
+            // count number
+            var i =1;
+            $({countNum: 1}).animate({countNum: c}, {
+              duration: 800,
+              easing:'linear',
+              step: function(i) {
+                a = Math.floor(i++);
+                b.html(a);
+              },
+              complete: function() {
+                  lock=false;
+                  return;
+              }
+            });
+        }, function(){});
+        
+        
+        //FIRST ANIMATION after load
+        firstAnimation = function(duration){
+            var section = '.first-section';
+            $(section + ' h1').hide().delay(500).fadeIn(duration);
+            $(section + ' .lead').hide().delay(1500).fadeIn(duration);
+            $(section + ' .anahor').hide().delay(3500).fadeIn(duration);
+        };
+        firstAnimation(1500);
 
     });
 })();
