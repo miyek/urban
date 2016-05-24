@@ -38,9 +38,43 @@
             var el = $(this);
             //check
             var goTo = $(el.attr('href'));
+            if(goTo.length==0) return;
+            
             $('html, body').animate({
                 scrollTop: goTo.offset().top
             }, settings.delay);          
+        });
+    };
+    
+    //modal box
+    $.fn.modal = function(options){
+        //modal settings
+        var settings = $.extend({
+            boxname: '.modal-box',
+            close: '.modal-box-close',
+            show: false,
+            duration: 500,
+            delay: 0
+        },options);
+        
+        //set variables
+        var box = $(settings.boxname);
+        var close = box.find(settings.close);
+        var click =$(this);
+        
+        fadeBox = function(){
+            box.delay(settings.delay).fadeIn(settings.duration);
+        };
+        
+        //show modal box on load
+        if(settings.show) fadeBox();
+        
+        //show modal on click
+        if(click.attr('href')) click.on('click', fadeBox);
+        
+        //close modal
+        close.on('click', function(){
+            box.fadeOut(settings.duration);
         });
     };
     
@@ -126,9 +160,12 @@
         //toggle menu on click
         $('.navmain').toggleMenu();
         //jump to anahor
-        $('.anahor').jumpTo({delay:15000});
+        $('.anahor').jumpTo({delay:1500});
         //stick to link menu and jump to anahor
         $('.navmain a').jumpTo({delay:1500});
+        //modal box (load after 5s)
+        //$('.modal-box').modal({show: true, delay: 5000});
+        
         
         //hover effect section 5
         var lock=false;

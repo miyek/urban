@@ -85,6 +85,41 @@ p{
     margin: 10px 50px 10px 50px;
 }
 
+/* modal box */
+.modal-box{
+    display: none;
+    background-color:rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    .wraper{
+        background: #FFF;
+        margin: 10%;
+        padding: 5%;
+        //border: solid 6px #000;
+        box-shadow: 0px 0px 20px #000;
+        position: relative;
+        .modal-box-close{
+            border: none;
+            background: none;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            right:10px;
+            top:10px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        .modal-box-close:hover{
+            color: red;
+        }
+    }
+}
+/* /modal box */
+
 /* navbar */
 nav.active{
     background: #283233;
@@ -163,11 +198,11 @@ nav{
             margin: 10px 20px 10px 20px;
         }
         ul li{
-            padding: 15px 0px 15px 0px;
+            padding: 5px 0px 5px 0px;
             border-bottom: solid 1px #28b1c5;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 0.9em;
+            font-size: 0.8em;
         }
         ul li a{
             color: #FFF;
@@ -384,7 +419,14 @@ footer{
 }
 
 @media only screen and (min-height : 480px) {
-    
+    nav{
+        .navmain-wraper{
+            ul li{
+                padding: 15px 0px 15px 0px;
+                font-size: 0.9em;
+            }
+        }
+    }
    
 }
 
