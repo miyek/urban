@@ -151,9 +151,14 @@
     };
     /* /.FUNCTIONS */
     
+    $(document).load(function(){
+        //show loading animation
+        $('body').css({'overflow': 'hidden'});
+        $('.loadcover').show();
+    });
     
     $(document).ready(function(){
-        
+
         animationsScroll();
         
         //PLUGINS handles

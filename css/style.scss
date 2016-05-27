@@ -33,6 +33,9 @@ $color4: #e9516a;
     animation: fadein 3s forwards;
     animation-delay: 0.2s;
 }
+.animation{
+    opacity: 0;
+}
 
 :focus{
     border: none; 
@@ -295,9 +298,6 @@ section{
     p{
        padding:5px 0 5px 0;
     }
-    .animation{
-        opacity: 0;
-    }
 }
 
 /* Third Section */
@@ -305,7 +305,6 @@ section{
     background: $color3;  
     color: #FFF;
     padding: 50px 0 0px 0;
-
     h1{
         font-size: 1.5em;
         line-height: 1.2em;
@@ -331,9 +330,6 @@ section{
     .image img{
         width: inherit;
     }
-    .animation{
-        opacity: 0;
-    }
 }
 
 /* Fourth Section */
@@ -341,9 +337,6 @@ section{
     background: $color4; 
     color: #FFF;
     padding: 50px 0 50px 0px;
-    .animation{
-        opacity: 0;
-    }
     .icon{
         .icon-gfx{
             display: block;
@@ -402,6 +395,28 @@ footer{
     a:hover{
         color: $color4;
     }
+}
+
+/* Loading cover */
+.loadcover{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    position: absolute;
+    z-index: 9999;
+    top: 0px;
+    .loading{
+        margin-left: 45%;
+        margin-top: 20%;
+    }
+}
+.loading{
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    background: url(../images/ring.gif) center no-repeat;
+    background-size: cover;
 }
 
 

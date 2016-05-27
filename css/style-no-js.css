@@ -1,0 +1,13 @@
+.animation { opacity: 1; }
+
+nav { position: relative; }
+nav .navmain-close { display: none; }
+nav .navmain-wraper { right: 0; display: block; position: relative; width: 100%; }
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) { body { margin-right: 200px; }
+  nav { position: fixed; }
+  nav .navmain-close { display: none; }
+  nav .navmain-wraper { right: 0; display: block; position: fixed; width: 200px; } }
+
+/*# sourceMappingURL=style-no-js.css.map */

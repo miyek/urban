@@ -25,6 +25,10 @@ body, html {
   animation-delay: 0.2s;
 }
 
+.animation {
+  opacity: 0;
+}
+
 :focus {
   border: none;
   outline: none;
@@ -289,9 +293,6 @@ section .wraper {
 .second-section p {
   padding: 5px 0 5px 0;
 }
-.second-section .animation {
-  opacity: 0;
-}
 
 /* Third Section */
 .third-section {
@@ -323,18 +324,12 @@ section .wraper {
 .third-section .image img {
   width: inherit;
 }
-.third-section .animation {
-  opacity: 0;
-}
 
 /* Fourth Section */
 .fourth-section {
   background: #e9516a;
   color: #FFF;
   padding: 50px 0 50px 0px;
-}
-.fourth-section .animation {
-  opacity: 0;
 }
 .fourth-section .icon .icon-gfx {
   display: block;
@@ -386,6 +381,29 @@ footer a {
 }
 footer a:hover {
   color: #e9516a;
+}
+
+/* Loading cover */
+.loadcover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+  position: absolute;
+  z-index: 9999;
+  top: 0px;
+}
+.loadcover .loading {
+  margin-left: 45%;
+  margin-top: 20%;
+}
+
+.loading {
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  background: url(../images/ring.gif) center no-repeat;
+  background-size: cover;
 }
 
 /* Extra Small Devices, Phones */
